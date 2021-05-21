@@ -29,14 +29,25 @@ class DishDetail extends Component{
         }
     }
 
+
+
     renderComment(dish) {
+        renderCommen(dish){
+            const comment = this.props.dishes.comments.map((comments) => {
+                return(<h7>
+                    {comments.comment}
+                </h7>)
+            });
+            return comment;
+        }
         if(dish!= null) {
             return(
                     <CardBody>
                             <CardTitle> {"Comments"} </CardTitle>
                             <CardText> 
                                 <h7>
-                                    Imagine all the eatables, living in conFusion! <br></br>
+                                    {renderCommen(dish)}
+                                    {/* Imagine all the eatables, living in conFusion! <br></br>
                                     <br></br>
                                     -- John Lemon , Oct 17, 2012 <br></br>
                                     Sends everyone to heaven, I wish my mother-in-law could eat it!<br></br>
@@ -53,7 +64,8 @@ class DishDetail extends Component{
                                     <br></br>
                                     It's your birthday, we're gonna party!<br></br>
                                     <br></br>
-                                    -- 25 Cent, Dec 03, 2011
+                                    -- 25 Cent, Dec 03, 2011 */}
+                                    
                                 </h7>
                             </CardText>
                     </CardBody>
@@ -71,11 +83,11 @@ class DishDetail extends Component{
 
         return (
             <div className = "row">
-            <div className = "col-md-5 col-xs-12 col-sm-12">
+            <div className = "col-12 col-md-5 ">
                 {this.renderDish(this.props.selectedDish)}
                 </div>
             
-            <div className = "col-md-5 col-xs-12 col-sm-12">
+            <div className = "col-12 col-md-5 ">
                 {this.renderComment(this.props.selectedDish)}
             </div>
             </div>
